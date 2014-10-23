@@ -56,6 +56,12 @@ class PopulateDeleteNode{
     
     }
 
+    public void setHead(LinkedList node){
+    
+        this.firstNode = node;
+    
+    }
+
     public void deleteNode(LinkedList node){
     
         traverser = firstNode;
