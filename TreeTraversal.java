@@ -1,3 +1,6 @@
+import java.util.Stack;
+
+
 class TreeTraversal{
 
 
@@ -149,6 +152,65 @@ class TreeTraversal{
     }
 
 
+    public void postOrderPrintI(TreeNode node){
+        
+        if(node == null){
+        
+            return;
+        
+        }
+
+        TreeNode visitedNode = null;
+        TreeNode myNode = node;
+
+        Stack<TreeNode> post = new Stack<TreeNode>();
+        
+        post.push(myNode);
+
+        while(true){
+        
+        while( myNode.getLeft() != null &&  myNode.getRight() != visitedNode &&  myNode.getLeft() != visitedNode){
+
+                post.push(myNode.getLeft());
+                myNode = myNode.getLeft();
+                
+                visitedNode = myNode; 
+            
+            
+
+        }
+
+        
+        if( myNode.getRight() != null ){
+            
+            
+            if(myNode.getRight() != visitedNode){
+            
+            myNode = myNode.getRight();
+            post.push(myNode);
+            visitedNode = myNode;
+            }
+            
+        }
+        if((myNode.getRight() == null && (myNode.getLeft() == visitedNode || myNode.getLeft() == null)) || (myNode.getRight() == visitedNode)){
+            visitedNode = post.pop();
+            System.out.println(visitedNode.getData());
+        
+        }
+
+        if(post.empty()){
+        
+            break;
+        }
+
+        myNode = post.peek();
+        
+        }
+    
+
+    }
+
+
 
 
     public static void main(String[] args){
@@ -165,10 +227,15 @@ class TreeTraversal{
 
        tree.preOrderPrint(tree.getRoot());
 
+       
        System.out.println();
        System.out.println();
        System.out.println();
        tree.postOrderPrint(tree.getRoot());
+       System.out.println();
+       System.out.println();
+       System.out.println();
+       tree.postOrderPrintI(tree.getRoot());
 
 
 
