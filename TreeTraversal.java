@@ -75,18 +75,18 @@ class TreeTraversal{
     
 
         createTree(6,6);
-        createTree(7,7);
+        //createTree(7,7);
         createTree(9,9);
-        createTree(12,12);
-        createTree(13,13);
-        createTree(0,0);
+        //createTree(12,12);
+        //createTree(13,13);
+        //createTree(0,0);
         createTree(8,8);
-        createTree(5,5);
+        //createTree(5,5);
         createTree(2,2);
         createTree(1,1);
         createTree(4,4);
         createTree(15,15);
-        createTree(16,16);
+        //createTree(16,16);
         
         
     }
@@ -237,8 +237,15 @@ class TreeTraversal{
        System.out.println();
        tree.postOrderPrintI(tree.getRoot());
 
-
-
+       CheckBalanced cb = new CheckBalanced();
+       int ret = cb.checkBalanced(tree.getRoot());
+       if(ret == -1){
+        System.out.println("Not Balanced");
+       }
+       else{
+        System.out.println("Balanced");
+       
+       }
     
     }
 
